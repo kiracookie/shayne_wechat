@@ -1,0 +1,6 @@
+/* pages/info_upload/info_upload.wxss */
+
+.btn {
+  width: 50%;
+  float: left;
+}

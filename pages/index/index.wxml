@@ -1,0 +1,82 @@
+<!--index.wxml-->
+<!-- <view class="container"> -->
+<!-- <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view> -->
+<!-- <view style='height:84rpx;background:#fff;border-bottom:1px solid #D9D9D9;line-height:84rpx;'>
+    <view class="section__title" style='display:inline-block;line-height:85rpx;color:rgba(0,0,0,1);font-size:33rpx;float:left;'>选择地址</view>
+    <picker mode="region" bindchange="bindRegionChange" value="{{detailed}}" custom-item="{{customItem}}" name="detailed" style='display:inline-block;font-size:33rpx;color:#C7C7CC;width:71%;margin-left:36rpx;height:75rpx;letter-spacing:2rpx;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}'>
+      <view class="picker {{clas}}">{{detailed}}</view>
+    </picker>
+  </view> -->
+<!-- <view class="section"> -->
+<!-- <view class="section__title">省市区选择器</view> -->
+<!-- <input value='{{key}}'  class="input" placeholder='请输入关键字'/>
+    <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}" bindtap='search'>
+      <view class="picker">
+        当前选择：{{region[0]}}，{{region[1]}}，{{region[2]}}
+      </view>
+    </picker>
+    <button bindtap="search">查找店铺</button>
+  </view>
+</view> -->
+
+<!-- 搜索栏 -->
+<view class="weui-search-bar {{keyShowed ? 'weui-search-bar_focusing' : ''}}">
+  <form class="weui-search-bar__form">
+    <view class="weui-search-bar__box">
+      <i class="weui-icon-search"></i>
+      <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{key}}" focus="{{keyShowed}}" bindinput="inputTyping" />
+      <span class="weui-icon-clear" wx:if="{{key.length > 0}}" bindtap="clearInput"></span>
+    </view>
+    <label class="weui-search-bar__label" bindtap="showInput">
+      <i class="weui-icon-search"></i>
+      <span class="weui-search-bar__text">{{key}}</span>
+    </label>
+  </form>
+  <!-- <view class="weui-search-bar__cancel-btn" bindtap="hideInput">取消</view> -->
+</view>
+<!-- <view class="searchbar-result">
+  <a class="weui-btn weui-btn_primary" bindtap="search" wx:if="{{keyShowed}}">搜索</a>
+</view> -->
+
+<!-- 地区选择 -->
+<view class="page__bd page__bd_spacing">
+  <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+    <view class="weui-flex">
+      <view class="weui-flex__item">
+        <view class="placeholder">{{region[0]}}</view>
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder">{{region[1]}}</view>
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder">{{region[2]}}</view>
+      </view>
+    </view>
+  </picker>
+  <a class="weui-btn weui-btn_primary" bindtap="search">搜索</a>
+</view>
+
+<!-- 结果展示 -->
+<view class="weui-panel weui-panel_access" wx:if="{{searchResult.length>0}}">
+  <view class="weui-panel__hd">搜索结果</view>
+  <view class="weui-panel__bd">
+    <a class="weui-media-box weui-media-box_appmsg" wx:for="{{searchResult}}"  wx:key="id" wx:for-item="shop"  id="shop_{{shop.id}}" >
+      <view class="weui-media-box__hd">
+        <image class="weui-media-box__thumb" src="data:image/png;base64,{{shop.logo}}"></image>
+      </view>
+      <view class="weui-media-box__bd">
+        <h4 class="weui-media-box__title">{{shop.name}}</h4>
+        <view class="weui-media-box__desc">{{shop.description}}</view>
+      </view>
+    </a>
+  </view>
+</view>

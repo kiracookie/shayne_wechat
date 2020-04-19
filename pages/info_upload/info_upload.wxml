@@ -1,0 +1,31 @@
+<view class="question-images-area">
+  <!--已上传图片-->
+  <view>
+    <text style="color:red">
+    温馨提示:
+    1.每次至少选择一张图片  
+    2.非首次上传,需要将页面内已上传图片删除重新选择
+    3.本次上传操作会覆盖对应比赛已上传的所有图片 
+    </text>
+  </view>
+  <!-- 添加图片按钮  -->
+  <view class="question-images-tool">
+    <button type="default" size="mini" bindtap="chooseImage" wx:if="{{images.length < 3}}">添加图片</button>
+  </view>
+
+  <!-- 图片缩略图  -->
+  <view class="question-images">
+    <block wx:for="{{images}}" wx:key="*this">
+      <view class="q-image-wrap">
+        <image class="q-image" src="{{item}}" mode="aspectFill" data-idx="{{index}}" bindtap="handleImagePreview"></image>
+        <view class="q-image-remover" data-idx="{{index}}" bindtap="removeImage">删除</view>
+      </view>
+    </block>
+  </view>
+
+</view>
+
+<!-- 提交表单按钮  -->
+<button class="weui-btn" type="primary" bindtap="submitForm">提交</button>
+
+<button class="weui-btn" type="primary" bindtap="deleteCompetitionImg">删除所有比赛图片</button>
