@@ -69,7 +69,7 @@
 <view class="weui-panel weui-panel_access" wx:if="{{searchResult.length>0}}">
   <view class="weui-panel__hd">搜索结果</view>
   <view class="weui-panel__bd">
-    <a class="weui-media-box weui-media-box_appmsg" wx:for="{{searchResult}}"  wx:key="id" wx:for-item="shop"  id="shop_{{shop.id}}" >
+    <a class="weui-media-box weui-media-box_appmsg" wx:for="{{searchResult}}" wx:for-index="bindex" wx:key="id" wx:for-item="shop" data-shopid="{{shop.id}}" bindtap="bindViewTap" data-bindex='{{bindex}}'>
       <view class="weui-media-box__hd">
         <image class="weui-media-box__thumb" src="data:image/png;base64,{{shop.logo}}"></image>
       </view>

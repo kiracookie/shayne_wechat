@@ -1,0 +1,29 @@
+<view class="page" data-weui-theme="{{theme}}">
+  <swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+    <swiper-item wx:for="{{swiperList}}" wx:for-item="swiper" wx:for-index="bindex" wx:key="id" data-bindex="{{bindex}}" bindtap="open">
+      <image src="data:image/png;base64,{{swiper.pic}}" mode="aspectFill"></image>
+    </swiper-item>
+  </swiper>
+  <view class="page__bd">
+    <view class="weui-article">
+      <view class="weui-article__h1">{{shop.name}}</view>
+      <view class="weui-article__section">
+        <view class="weui-article__h2">地址：{{shop.address}}</view>
+        <view class="weui-article__section">
+          <view class="weui-article__h3">风格：{{shop.description}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{gallery}}" class="weui-gallery fadeIn" bindtap="close">
+    <view class="weui-gallery__img__wrp">
+      <image mode="aspectFit" class="weui-gallery__img" src="data:image/png;base64,{{currentPic}}"></image>
+    </view>
+    <view class="weui-gallery__opr">
+      <view class="weui-gallery__del">
+        <i class="weui-icon-delete weui-icon_gallery-delete"></i>
+      </view>
+    </view>
+  </view>
+</view>

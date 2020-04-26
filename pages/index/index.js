@@ -13,12 +13,12 @@ Page({
     customItem: '全部',
     key: '',
     keyShowed: false,
-    searchResult:[]
+    searchResult: []
   },
   //事件处理函数
-  bindViewTap: function() {
+  bindViewTap: function(event) {
     wx.navigateTo({
-      url: '../info_upload/info_upload'
+      url: '../article/article?shopid=' + event.currentTarget.dataset.shopid
     })
   },
   onLoad: function() {
@@ -75,7 +75,7 @@ Page({
       method: 'POST',
       success: function(res) {
         that.setData({
-          searchResult:res.data
+          searchResult: res.data
         })
         console.info(res)
       },

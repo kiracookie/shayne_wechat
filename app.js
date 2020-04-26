@@ -35,6 +35,6 @@ App({
   },
   globalData: {
     userInfo: null,
-    baseWebApiUrl:'http://127.0.0.1:8080'
+    baseWebApiUrl:'http://106.12.207.34:80'
   }
 })
