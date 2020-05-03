@@ -35,6 +35,6 @@ App({
   },
   globalData: {
     userInfo: null,
-    baseWebApiUrl:'http://106.12.207.34:80'
+    baseWebApiUrl:'https://kriacookie.cn'
   }
 })
