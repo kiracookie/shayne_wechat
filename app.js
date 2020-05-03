@@ -35,6 +35,6 @@ App({
   },
   globalData: {
     userInfo: null,
-    baseWebApiUrl:'https://kriacookie.cn'
+    baseWebApiUrl:'https://reg.qdxnzn.com'
   }
 })
